@@ -12,7 +12,7 @@ contract(Grid):
     proc PlaceMakerOrder(orderId: indexed[UInt256], recipient:indexed[Address], bundleId: indexed[Uint64], zero:Bool, boundaryLower: Int24, amount: StUint[128]) {.event.}
 
 contract(SwapRouterHub):
-  proc Swap(sender: indexed[Address], recipient: indexed[Address], amount0: StInt[256],  amount1: StInt[256],  priceX96: Uint256, boundary: Int24) {.event.}
+  proc Swap(sender: indexed[Address], recipient: indexed[Address], amount0: StInt[256],  amount1: StInt[256],  priceX96: UInt160, boundary: Int24) {.event.}
 
 var swapRouterAddress = Address.fromHex("0xf4AE7E15B1012edceD8103510eeB560a9343AFd3")
 var gridAddress = Address.fromHex("0xe8afd1fa3f91fa7387b0537bda5c525752efe821")
@@ -86,7 +86,7 @@ proc main() {.async.} =
                 offset += amount1DecodeLen
                 echo &"{amount1DecodeLen} amount1:",amount1
 
-                var priceX96 = Uint256.fromHex("0x0")
+                var priceX96 = UInt160.fromHex("0x0")
                 offset += decode(inputData, offset, priceX96)
                 echo &"priceX96:{priceX96.toString()}"
 
