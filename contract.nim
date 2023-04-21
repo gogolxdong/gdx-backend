@@ -1,9 +1,6 @@
 import std/[random,options, json, parseutils, strutils, strformat, times, tables, sugar, sequtils, os]
 import pkg/[web3, chronos, nimcrypto, eth/keys, stint, puppy, taskpools, stint, web3/ethtypes]
 
-
-
-
 # contract(PancakeRouter):
 #   proc WETH(): Address
 #   proc factory(): Address
